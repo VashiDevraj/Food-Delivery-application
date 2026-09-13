@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    bg_rating_amber.xml
+    Solid deep amber badge background.
+    Always paired with white text.
+    rating >= 3.0 and < 4.0
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#E65100" />
+    <corners android:radius="8dp" />
+</shape>

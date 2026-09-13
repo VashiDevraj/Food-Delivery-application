@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_delivery_order_detail.xml
+    Maps REMOVED entirely.
+    Fixes:
+      • COD section now has both btnCollectCOD and btnShowUpiQr properly
+      • btnOpenUpiApp is in the UPI bottom sheet (bottomsheet_upi_qr.xml)
+      • tvStatusHint shows context per step
+      • Sequential buttons controlled by DeliveryOrderDetailActivity.java
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDeliveryDetail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FF6F00"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIconTint="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ── Order ID / Status / Earning header ── -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FF6F00">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tvOrderIdDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="#ORDER"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tvOrderStatusDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending"
+                            android:textColor="#FFE0B2"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="#33000000"
+                        android:padding="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="You earn"
+                            android:textColor="#FFE0B2"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:id="@+id/tvApproxEarning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="~₹0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── Customer info ── -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📍 Deliver To"
+                        android:textColor="#FF6F00"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                            android:text="👤" android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvCustomerName"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textColor="#212121" android:textSize="15sp"
+                            android:textStyle="bold" android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                            android:text="📞" android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvCustomerPhone"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textColor="#E23744" android:textSize="15sp"
+                            android:textStyle="bold" android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="top">
+                        <TextView android:layout_width="30dp" android:layout_height="wrap_content"
+                            android:text="🏠" android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/tvCustomerAddress"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textColor="#424242" android:textSize="14sp"
+                            android:layout_marginStart="8dp" android:lineSpacingExtra="3dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── Order items ── -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="🛍️ Order Items" android:textColor="#FF6F00"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="10dp" />
+                    <TextView android:id="@+id/tvOrderItemsDetail"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#424242" android:textSize="13sp" android:lineSpacingExtra="5dp" />
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="#F0F0F0" android:layout_marginTop="12dp" android:layout_marginBottom="12dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:text="Order Total"
+                            android:textColor="#757575" android:textSize="14sp" />
+                        <TextView android:id="@+id/tvOrderAmountDetail"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textColor="#212121" android:textSize="17sp" android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── Payment info ── -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="💳 Payment" android:textColor="#FF6F00"
+                        android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="10dp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="6dp">
+                        <TextView android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Method" android:textColor="#757575" android:textSize="14sp" />
+                        <TextView android:id="@+id/tvPaymentMethodDetail"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textColor="#212121" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="Status" android:textColor="#757575" android:textSize="14sp" />
+                        <TextView android:id="@+id/tvPaymentStatusDetail"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textColor="#2E7D32" android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ── COD section (shown only for COD during OUT_FOR_DELIVERY) ── -->
+            <LinearLayout android:id="@+id/layoutCodSection"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:visibility="gone">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp" app:cardElevation="3dp"
+                    app:cardBackgroundColor="#FFF3E0">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="💵 Collect Payment from Customer"
+                            android:textColor="#E65100" android:textSize="13sp" android:textStyle="bold"
+                            android:layout_marginBottom="6dp" />
+                        <TextView android:id="@+id/tvCodAmountDetail"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textColor="#424242" android:textSize="14sp" android:layout_marginBottom="16dp" />
+                        <!-- Cash + UPI buttons side by side -->
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCollectCOD"
+                                android:layout_width="0dp" android:layout_weight="1"
+                                android:layout_height="48dp"
+                                android:text="💵 Cash" android:textStyle="bold"
+                                android:layout_marginEnd="8dp"
+                                app:backgroundTint="#E65100" app:cornerRadius="10dp" />
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnShowUpiQr"
+                                android:layout_width="0dp" android:layout_weight="1"
+                                android:layout_height="48dp"
+                                android:text="📱 UPI QR" android:textStyle="bold"
+                                app:backgroundTint="#1565C0" app:cornerRadius="10dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- ── Tip section ── -->
+            <LinearLayout android:id="@+id/layoutTipSection"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="#E8F5E9"
+                android:padding="14dp" android:layout_marginBottom="12dp"
+                android:gravity="center_vertical" android:visibility="gone">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="🎁 Tip from customer:"
+                    android:textColor="#1B5E20" android:textSize="14sp" android:layout_marginEnd="8dp" />
+                <TextView android:id="@+id/tvTipAmountDetail"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#1B5E20" android:textSize="18sp" android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ── Delivery note ── -->
+            <LinearLayout android:id="@+id/layoutNoteSection"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="#E3F2FD"
+                android:padding="14dp" android:layout_marginBottom="16dp" android:visibility="gone">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📝 Note from customer"
+                    android:textColor="#1A237E" android:textSize="13sp" android:textStyle="bold"
+                    android:layout_marginBottom="4dp" />
+                <TextView android:id="@+id/tvDeliveryNoteDetail"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textColor="#283593" android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ── Bottom action buttons panel ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="14dp"
+        android:orientation="vertical">
+
+        <!-- Status hint bar -->
+        <TextView
+            android:id="@+id/tvStatusHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="#5D4037"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:background="#FFF8E1"
+            android:visibility="gone" />
+
+        <!-- STEP 1: Pick Up Food -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickupFood"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🍱  Picked Up Food from Restaurant"
+            android:textStyle="bold" android:textSize="15sp"
+            app:backgroundTint="#7B1FA2" app:cornerRadius="12dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- STEP 2: Mark Out for Delivery -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMarkOutForDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🛵  Mark Out for Delivery"
+            android:textStyle="bold" android:textSize="15sp"
+            app:backgroundTint="#1565C0" app:cornerRadius="12dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- STEP 3a-i: Generate OTP for customer (prepaid, shown first) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSendOtp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🔑  Generate &amp; Send OTP to Customer"
+            android:textStyle="bold" android:textSize="15sp"
+            app:backgroundTint="#FF6F00" app:cornerRadius="12dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- STEP 3a-ii: Enter OTP (opens OtpVerifyActivity) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnterOtp"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="🔐  Enter Customer OTP to Deliver"
+            android:textStyle="bold" android:textSize="15sp"
+            app:backgroundTint="#4527A0" app:cornerRadius="12dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- STEP 4: Mark Delivered (shown after COD collected or OTP verified) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMarkDelivered"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="✅  Mark as Delivered"
+            android:textStyle="bold" android:textSize="15sp"
+            app:backgroundTint="#2E7D32" app:cornerRadius="12dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

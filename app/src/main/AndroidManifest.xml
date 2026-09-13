@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.fooddeliveryapp">
+    <!-- ══ HARDWARE ══ -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" /> <!-- ══ PERMISSIONS ══ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /> <!-- FCM notifications -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- For opening Google Maps / UPI deep links -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FoodDeliveryApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activities.AssignDeliveryBoyActivity"
+            android:exported="false" />
+<activity android:name=".activities.OrderTrackingActivity"
+    android:exported="false" />
+        <activity android:name=".activities.OtpVerifyActivity" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+        <!--
+ ══════════════════════════════════════════
+             FILE PROVIDER
+        ══════════════════════════════════════════
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- FCM Service -->
+        <service
+            android:name=".services.FoodDeliveryFCMService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+ ══════════════════════════════════════════
+             LAUNCH
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FoodDeliveryApp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+ ══════════════════════════════════════════
+             AUTH
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.AuthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!--
+ ══════════════════════════════════════════
+             USER SCREENS
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.UserDashboardActivity"
+            android:exported="false" />
+        <activity android:name=".activities.DeliveryBoyRatingsActivity"/>
+        <activity android:name=".activities.AddressListActivity"/>
+        <activity
+            android:name=".activities.UserProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.FoodDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CheckoutActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OrderHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.OrderSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WriteReviewActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.CouponActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FavouritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.HelpSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ChangePasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false" />
+        <!--
+ ══════════════════════════════════════════
+             RESTAURANT / FOOD SCREENS
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.RestaurantMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RestaurantSetupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.AddRestaurantActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.RestaurantEditActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!--
+ ══════════════════════════════════════════
+             ADMIN SCREENS
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.AdminDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.AdminOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminMenuActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.AdminReviewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.AdminBestSellersActivity"
+            android:exported="false" /> <!-- NEW: Admin delivery boy management -->
+        <activity
+            android:name=".activities.AdminDeliveryBoysActivity"
+            android:exported="false" />
+        <!--
+ ══════════════════════════════════════════
+             DELIVERY BOY SCREENS  ← ALL NEW
+        ══════════════════════════════════════════
+        -->
+        <activity
+            android:name=".activities.DeliveryBoyDashboardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.DeliveryOrderDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryEarningsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryOrderHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DeliveryBoyProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>

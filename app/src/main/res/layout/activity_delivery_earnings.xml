@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- activity_delivery_earnings.xml — vibrant earnings screen -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarEarnings"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FF6F00"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIconTint="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Stats header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FF6F00"
+        android:orientation="horizontal"
+        android:paddingStart="16dp" android:paddingEnd="16dp"
+        android:paddingTop="8dp" android:paddingBottom="24dp">
+
+        <!-- Today -->
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center" android:background="#33FFFFFF"
+            android:padding="12dp" android:layout_marginEnd="5dp">
+            <TextView android:id="@+id/tvTodayEarning"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="₹0" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Today" android:textColor="#FFE0B2" android:textSize="11sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Month -->
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center" android:background="#33FFFFFF"
+            android:padding="12dp" android:layout_marginEnd="5dp">
+            <TextView android:id="@+id/tvMonthEarning"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="₹0" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Month" android:textColor="#FFE0B2" android:textSize="11sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Total -->
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center" android:background="#33FFFFFF"
+            android:padding="12dp" android:layout_marginEnd="5dp">
+            <TextView android:id="@+id/tvTotalEarningAll"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="₹0" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="All Time" android:textColor="#FFE0B2" android:textSize="11sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Deliveries -->
+        <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            android:gravity="center" android:background="#33FFFFFF"
+            android:padding="12dp">
+            <TextView android:id="@+id/tvTotalDeliveriesEarnings"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0" android:textColor="#FFFFFF"
+                android:textSize="22sp" android:textStyle="bold"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Orders" android:textColor="#FFE0B2" android:textSize="11sp"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Section header -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingStart="16dp" android:paddingEnd="16dp"
+        android:paddingTop="16dp" android:paddingBottom="8dp">
+
+        <LinearLayout android:layout_width="4dp" android:layout_height="20dp"
+            android:background="#FF6F00" android:layout_marginEnd="8dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Earning History"
+            android:textSize="16sp" android:textStyle="bold" android:textColor="#212121" />
+
+    </LinearLayout>
+
+    <TextView android:id="@+id/tvNoEarnings"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="No earnings yet.\nComplete deliveries to see your earnings here! 💰"
+        android:textColor="#9E9E9E" android:textSize="14sp"
+        android:gravity="center" android:paddingTop="50dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEarningHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        android:visibility="gone" />
+
+</LinearLayout>

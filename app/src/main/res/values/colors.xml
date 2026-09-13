@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ── Brand ──────────────────────────────────────────────────────────── -->
+    <color name="primaryColor">#E23744</color>
+    <color name="primaryDark">#C62333</color>
+    <color name="primaryLight">#FF8A93</color>
+    <color name="accentColor">#E23744</color>
+
+    <!-- ── Semantic surface colors used in layouts ────────────────────────── -->
+    <color name="colorBackground">#F4F4F4</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorSurfaceVariant">#FFF5F5</color>
+    <color name="colorOnSurface">#1A1A1A</color>
+    <color name="colorOnSurfaceVariant">#757575</color>
+    <color name="colorDivider">#E0E0E0</color>
+
+    <!-- ── divider alias — used by bg_cart_total.xml drawable ────────────── -->
+    <color name="divider">#E0E0E0</color>
+
+    <!-- ── Order status — used by bg_status_*.xml drawables ──────────────── -->
+    <color name="statusPending">#FF9800</color>
+    <color name="statusPreparing">#2196F3</color>
+    <color name="statusDelivered">#4CAF50</color>
+    <color name="statusCancelled">#F44336</color>
+    <color name="statusOutForDelivery">#9C27B0</color>
+
+    <!-- ── ThemeColors.java runtime pairs (light / dark) ─────────────────── -->
+    <color name="lightBackground">#F4F4F4</color>
+    <color name="lightSurface">#FFFFFF</color>
+    <color name="lightSurfaceVariant">#FFF5F5</color>
+    <color name="lightOnSurface">#1A1A1A</color>
+    <color name="lightOnSurfaceVariant">#757575</color>
+    <color name="lightDivider">#E0E0E0</color>
+
+    <color name="darkBackground">#121212</color>
+    <color name="darkSurface">#1E1E1E</color>
+    <color name="darkSurfaceVariant">#2C2C2C</color>
+    <color name="darkOnSurface">#EFEFEF</color>
+    <color name="darkOnSurfaceVariant">#AAAAAA</color>
+    <color name="darkDivider">#2C2C2C</color>
+
+    <!-- ── Misc fixed colors ──────────────────────────────────────────────── -->
+    <color name="bgWhite">#FFFFFF</color>
+    <color name="bgCard">#FFFFFF</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="textHint">#9E9E9E</color>
+    <color name="green">#4CAF50</color>
+    <color name="greenDark">#2E7D32</color>
+    <color name="amber">#FFC107</color>
+    <color name="bgLight">#F4F4F4</color>
+    <color name="primaryOrange">#E23744</color>
+    <color name="stepInactiveLight">#BDBDBD</color>
+</resources>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_otp_verify.xml
+    Professional 4-box OTP verification screen for the delivery boy.
+    Dark background with orange brand accent, card-based layout.
+    Each box is a single-digit EditText with custom drawable border.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#0F0F0F"
+    android:padding="24dp">
+
+    <!-- Brand icon / shield -->
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="🔐"
+        android:textSize="48sp"
+        android:gravity="center"
+        android:background="#1A1A1A"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Delivery OTP"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ask the customer for the 4-digit OTP shown\nin their Order Tracking screen"
+        android:textColor="#888888"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="40dp" />
+
+    <!-- OTP Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#1C1C1C"
+        android:layout_marginBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <!-- 4 OTP input boxes in a row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="28dp">
+
+                <EditText
+                    android:id="@+id/etOtp1"
+                    android:layout_width="64dp"
+                    android:layout_height="72dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/bg_otp_box_default"
+                    android:cursorVisible="false"
+                    android:importantForAutofill="no" />
+
+                <EditText
+                    android:id="@+id/etOtp2"
+                    android:layout_width="64dp"
+                    android:layout_height="72dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/bg_otp_box_default"
+                    android:cursorVisible="false"
+                    android:importantForAutofill="no" />
+
+                <EditText
+                    android:id="@+id/etOtp3"
+                    android:layout_width="64dp"
+                    android:layout_height="72dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/bg_otp_box_default"
+                    android:cursorVisible="false"
+                    android:importantForAutofill="no" />
+
+                <EditText
+                    android:id="@+id/etOtp4"
+                    android:layout_width="64dp"
+                    android:layout_height="72dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:background="@drawable/bg_otp_box_default"
+                    android:cursorVisible="false"
+                    android:importantForAutofill="no" />
+
+            </LinearLayout>
+
+            <!-- Verify Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerifyOtp"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Verify &amp; Complete Delivery"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#FF6F00"
+                app:cornerRadius="14dp"
+                app:elevation="4dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Cancel link -->
+    <TextView
+        android:id="@+id/tvCancelOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:textColor="#555555"
+        android:textSize="15sp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+</LinearLayout>

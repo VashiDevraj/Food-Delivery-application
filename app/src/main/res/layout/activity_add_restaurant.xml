@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F4F4">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#E23744"
+        app:titleTextColor="#FFFFFF"
+        app:navigationIconTint="#FFFFFF"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp" app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="20dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="ADD RESTAURANT" android:textColor="#E23744"
+                        android:textSize="12sp" android:textStyle="bold"
+                        android:letterSpacing="0.12" android:layout_marginBottom="16dp"/>
+
+                    <!-- Restaurant Name -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp" android:hint="Restaurant Name"
+                        app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRestaurantName"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:textColor="#212121" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- City -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp" android:hint="City"
+                        app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRestaurantCity"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:textColor="#212121" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Address -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp" android:hint="Address"
+                        app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRestaurantAddress"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textMultiLine" android:lines="2"
+                            android:textColor="#212121" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Pincode + Phone -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="14dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:layout_marginEnd="8dp"
+                            android:hint="Pincode"
+                            app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                            app:boxStrokeWidth="1dp"
+                            app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etRestaurantPincode"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textColor="#212121" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Phone"
+                            app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                            app:boxStrokeWidth="1dp"
+                            app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etRestaurantPhone"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="phone"
+                                android:textColor="#212121" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!-- Delivery Time + Min Order -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginBottom="14dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:layout_marginEnd="8dp"
+                            android:hint="Delivery Time (mins)"
+                            app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                            app:boxStrokeWidth="1dp"
+                            app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDeliveryTime"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textColor="#212121" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Min Order (₹)"
+                            app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                            app:boxStrokeWidth="1dp"
+                            app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                            app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etMinOrderAmount"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="numberDecimal"
+                                android:textColor="#212121" android:textSize="14sp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!-- Offer -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="Offer (e.g. FREE DELIVERY above ₹199)"
+                        app:hintTextColor="#9E9E9E" app:boxStrokeColor="#E23744"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="10dp" app:boxCornerRadiusTopEnd="10dp"
+                        app:boxCornerRadiusBottomStart="10dp" app:boxCornerRadiusBottomEnd="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRestaurantOffer"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textCapWords"
+                            android:textColor="#212121" android:textSize="14sp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Veg Only Toggle -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:background="@drawable/bg_amount_light"
+                        android:paddingStart="14dp" android:paddingEnd="14dp"
+                        android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="20dp" android:layout_height="20dp"
+                            android:text="🟢" android:textSize="14sp" android:gravity="center"
+                            android:layout_marginEnd="10dp"/>
+                        <TextView android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:text="Pure Veg Restaurant"
+                            android:textColor="#212121" android:textSize="14sp"/>
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchVegOnly"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:checked="false"
+                            app:thumbTint="#4CAF50" app:trackTint="#C8E6C9"/>
+                    </LinearLayout>
+
+                    <!-- Image Preview -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent" android:layout_height="160dp"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="12dp" app:cardElevation="0dp"
+                        app:cardBackgroundColor="#F4F4F4"
+                        app:strokeColor="#E0E0E0" app:strokeWidth="1dp">
+                        <ImageView android:id="@+id/ivRestaurantImagePreview"
+                            android:layout_width="match_parent" android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@android:drawable/ic_menu_gallery"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Select Image -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSelectImage"
+                        android:layout_width="match_parent" android:layout_height="44dp"
+                        android:layout_marginBottom="12dp"
+                        android:text="📷  Select Restaurant Image"
+                        android:textColor="#E23744" android:textSize="13sp"
+                        app:backgroundTint="#FFF0F1" app:cornerRadius="10dp"
+                        app:strokeColor="#E23744" app:strokeWidth="1dp"/>
+
+                    <!-- Save -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSaveRestaurant"
+                        android:layout_width="match_parent" android:layout_height="52dp"
+                        android:text="Save Restaurant" android:textColor="#FFFFFF"
+                        android:textSize="15sp" android:textStyle="bold"
+                        app:backgroundTint="#E23744" app:cornerRadius="12dp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="YOUR RESTAURANTS" android:textColor="#757575"
+                android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.12"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRestaurantList"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" android:clipToPadding="false"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

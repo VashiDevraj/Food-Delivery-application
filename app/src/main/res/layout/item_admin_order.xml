@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_admin_order.xml — Vibrant redesign.
+    IDs preserved + NEW: tvAssignedBoy, btnAssignDelivery
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="14dp"
+    android:layout_marginEnd="14dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="0dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ══ RED HEADER BAND ══ -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:gravity="center_vertical"
+            android:background="#E23744">
+
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="#33FFFFFF"
+                android:layout_marginEnd="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🧾"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvAdminOrderId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvAdminOrderTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="11sp"
+                    android:textColor="#FFCDD2"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvItemCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#E23744"
+                android:background="#FFFFFF"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- ══ CUSTOMER INFO ══ -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="10dp"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CUSTOMER"
+                android:textSize="10sp"
+                android:textColor="#E23744"
+                android:textStyle="bold"
+                android:letterSpacing="0.14"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Name row -->
+            <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="28dp" android:layout_height="28dp"
+                    android:gravity="center" android:text="👤" android:textSize="14sp"
+                    android:layout_marginEnd="10dp"/>
+                <TextView android:id="@+id/tvCustomerName"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="14sp" android:textColor="#1A1A1A" android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Phone row -->
+            <LinearLayout android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="28dp" android:layout_height="28dp"
+                    android:gravity="center" android:text="📞" android:textSize="14sp"
+                    android:layout_marginEnd="10dp"/>
+                <TextView android:id="@+id/tvPhone"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="#444444" />
+            </LinearLayout>
+
+            <!-- Address row -->
+            <LinearLayout android:orientation="horizontal" android:gravity="top"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_width="28dp" android:layout_height="28dp"
+                    android:gravity="center" android:text="📍" android:textSize="14sp"
+                    android:layout_marginEnd="10dp"/>
+                <TextView android:id="@+id/tvAddress"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="#444444"
+                    android:maxLines="2" android:ellipsize="end" android:lineSpacingExtra="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══ CUSTOMER NOTE BANNER ══ -->
+        <LinearLayout
+            android:id="@+id/layoutCustomerNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#FFF8E1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <View android:layout_width="3dp" android:layout_height="match_parent"
+                android:background="#FFB300" android:layout_marginEnd="10dp" android:minHeight="36dp" />
+
+            <TextView android:layout_width="18dp" android:layout_height="wrap_content"
+                android:text="📝" android:textSize="12sp" android:layout_marginEnd="8dp"/>
+
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="CUSTOMER NOTE" android:textSize="9sp"
+                    android:textColor="#F57F17" android:textStyle="bold"
+                    android:letterSpacing="0.10" android:layout_marginBottom="3dp" />
+
+                <TextView android:id="@+id/tvCustomerNotes"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="#5D4037" android:textStyle="italic"
+                    android:lineSpacingExtra="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══ DIVIDER ══ -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#F0F0F0"
+            android:layout_marginStart="16dp" android:layout_marginEnd="16dp" />
+
+        <!-- ══ ORDER ITEMS ══ -->
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="14dp" android:paddingBottom="14dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="ORDER ITEMS" android:textSize="10sp"
+                android:textColor="#E23744" android:textStyle="bold"
+                android:letterSpacing="0.14" android:layout_marginBottom="8dp" />
+
+            <TextView android:id="@+id/tvAdminOrderItems"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="13sp" android:textColor="#333333"
+                android:lineSpacingExtra="6dp" android:fontFamily="monospace" />
+
+        </LinearLayout>
+
+        <!-- ══ PAYMENT + TOTAL ══ -->
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="12dp" android:paddingBottom="12dp"
+            android:gravity="center_vertical" android:background="#FFF5F5">
+
+            <LinearLayout android:orientation="vertical"
+                android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="PAYMENT" android:textSize="10sp"
+                    android:textColor="#E23744" android:textStyle="bold"
+                    android:letterSpacing="0.14" android:layout_marginBottom="5dp" />
+
+                <TextView android:id="@+id/tvPaymentMethod"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="#444444" />
+
+                <TextView android:id="@+id/tvPaymentStatus"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp" android:textSize="12sp" android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:gravity="center"
+                android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:paddingTop="10dp" android:paddingBottom="10dp"
+                android:background="#E23744">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="TOTAL" android:textSize="9sp"
+                    android:textColor="#FFCDD2" android:textStyle="bold"
+                    android:letterSpacing="0.14" android:gravity="center" />
+
+                <TextView android:id="@+id/tvAdminOrderAmount"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textStyle="bold" android:textSize="20sp"
+                    android:textColor="#FFFFFF" android:gravity="center"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ══ ASSIGNED DELIVERY BOY BANNER ══ -->
+        <TextView
+            android:id="@+id/tvAssignedBoy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8F5E9"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textSize="13sp"
+            android:textColor="#2E7D32"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- ══ STATUS + ACTION FOOTER ══ -->
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingStart="16dp" android:paddingEnd="16dp"
+            android:paddingTop="12dp" android:paddingBottom="16dp"
+            android:background="#FFFFFF">
+
+            <!-- Status badge + Update button row -->
+            <LinearLayout android:orientation="horizontal"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <TextView android:id="@+id/tvAdminOrderStatus"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="14dp" android:paddingEnd="14dp"
+                    android:paddingTop="10dp" android:paddingBottom="10dp"
+                    android:textColor="#FFFFFF" android:textStyle="bold"
+                    android:textSize="12sp" android:gravity="center"
+                    android:background="@drawable/bg_status_pending"
+                    android:layout_marginEnd="10dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUpdateStatus"
+                    android:text="Update Status"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    app:cornerRadius="22dp"
+                    app:backgroundTint="#E23744"
+                    android:textColor="#FFFFFF"
+                    app:icon="@drawable/ic_edit_status"
+                    app:iconGravity="textStart"
+                    app:iconSize="14dp"
+                    app:iconPadding="4dp" />
+
+            </LinearLayout>
+
+            <!-- Assign Delivery Partner button — full width, prominent orange -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAssignDelivery"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Assign Partner 🛵"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#FF6F00"
+                app:cornerRadius="12dp"
+                app:strokeWidth="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

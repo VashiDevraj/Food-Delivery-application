@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_coupon.xml — improved coupon screen
+    IDs: toolbar, tvCartSubtotalHint, tvSlotHint, rvCoupons, progressCoupon
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- ── Toolbar ──────────────────────────────────────────────────────── -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#E23744"
+        android:elevation="4dp"
+        app:titleTextColor="#FFFFFF"
+        app:navigationIconTint="#FFFFFF" />
+
+    <!-- ── Header card: cart subtotal + slot info ────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:elevation="2dp">
+
+        <!-- Row 1: title + spinner -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Available Coupons"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A1A" />
+
+            <ProgressBar
+                android:id="@+id/progressCoupon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:indeterminateTint="#E23744"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Row 2: cart subtotal hint -->
+        <TextView
+            android:id="@+id/tvCartSubtotalHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cart total: ₹0"
+            android:textSize="12sp"
+            android:textColor="#757575"
+            android:layout_marginTop="4dp" />
+
+        <!-- Row 3: slot indicator -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp">
+
+            <!-- Slot 1 pill -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center"
+                android:background="@drawable/bg_total_red"
+                android:layout_marginEnd="6dp">
+                <TextView
+                    android:id="@+id/tvSlot1Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slot 1: —"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Slot 2 pill -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center"
+                android:background="@drawable/bg_total_red"
+                android:layout_marginStart="6dp">
+                <TextView
+                    android:id="@+id/tvSlot2Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slot 2: —"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Note about 2-coupon limit -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ℹ️  You can apply up to 2 coupons. FREEDEL removes the ₹40 delivery fee."
+            android:textSize="11sp"
+            android:textColor="#9E9E9E"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- ── Coupon list ────────────────────────────────────────────────────── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCoupons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="24dp" />
+
+</LinearLayout>

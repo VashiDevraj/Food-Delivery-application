@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_order_tracking.xml — Maps REMOVED.
+    Sections:
+      1. Status header card (order ID + current status + picked-up hint)
+      2. 5-step progress timeline
+      3. OTP card (prepaid only — shows 4-digit OTP when OUT_FOR_DELIVERY,
+                   shows verified message when DELIVERED, hidden otherwise)
+      4. Delivery boy card (name + phone)
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FA">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarTracking"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#E23744"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIconTint="#FFFFFF"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ══ STATUS HEADER CARD ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#E23744">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTrackOrderId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="#ORDER"
+                        android:textColor="#FFCDD2"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvTrackStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏳ Order Placed"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvPickedUpStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#FFCDD2"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ 5-STEP TIMELINE ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Order Progress"
+                        android:textColor="#E23744"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Step 1: Placed -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <View android:id="@+id/stepPlaced"
+                                android:layout_width="24dp" android:layout_height="24dp"
+                                android:backgroundTint="#E23744"
+                                android:background="@drawable/step_circle"/>
+                            <TextView android:layout_width="42dp" android:layout_height="wrap_content"
+                                android:text="Placed" android:textSize="9sp"
+                                android:textColor="#757575" android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <View android:id="@+id/linePlacedPreparing"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="3dp" android:background="#BDBDBD"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Step 2: Preparing -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <View android:id="@+id/stepPreparing"
+                                android:layout_width="24dp" android:layout_height="24dp"
+                                android:backgroundTint="#BDBDBD"
+                                android:background="@drawable/step_circle"/>
+                            <TextView android:layout_width="52dp" android:layout_height="wrap_content"
+                                android:text="Preparing" android:textSize="9sp"
+                                android:textColor="#757575" android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <View android:id="@+id/linePreparingPickedUp"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="3dp" android:background="#BDBDBD"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Step 3: Picked Up -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <View android:id="@+id/stepPickedUp"
+                                android:layout_width="24dp" android:layout_height="24dp"
+                                android:backgroundTint="#BDBDBD"
+                                android:background="@drawable/step_circle"/>
+                            <TextView android:layout_width="52dp" android:layout_height="wrap_content"
+                                android:text="Picked Up" android:textSize="9sp"
+                                android:textColor="#757575" android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <View android:id="@+id/linePickedUpOut"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="3dp" android:background="#BDBDBD"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Step 4: Out for Delivery -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <View android:id="@+id/stepOutDelivery"
+                                android:layout_width="24dp" android:layout_height="24dp"
+                                android:backgroundTint="#BDBDBD"
+                                android:background="@drawable/step_circle"/>
+                            <TextView android:layout_width="42dp" android:layout_height="wrap_content"
+                                android:text="On Way" android:textSize="9sp"
+                                android:textColor="#757575" android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <View android:id="@+id/lineOutDelivered"
+                            android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="3dp" android:background="#BDBDBD"
+                            android:layout_marginBottom="16dp"/>
+
+                        <!-- Step 5: Delivered -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <View android:id="@+id/stepDelivered"
+                                android:layout_width="24dp" android:layout_height="24dp"
+                                android:backgroundTint="#BDBDBD"
+                                android:background="@drawable/step_circle"/>
+                            <TextView android:layout_width="50dp" android:layout_height="wrap_content"
+                                android:text="Delivered" android:textSize="9sp"
+                                android:textColor="#757575" android:gravity="center"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ OTP CARD (prepaid orders only — OUT_FOR_DELIVERY or DELIVERED) ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#EDE7F6">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔐 Delivery OTP"
+                        android:textColor="#4527A0"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp"/>
+
+                    <!-- The 4-digit OTP — large and bold, easy to read -->
+                    <TextView
+                        android:id="@+id/tvOtpCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="----"
+                        android:textColor="#311B92"
+                        android:textSize="52sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.4"
+                        android:layout_marginBottom="12dp"
+                        android:background="#FFFFFF"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"/>
+
+                    <TextView
+                        android:id="@+id/tvOtpHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share this OTP with the delivery partner to confirm delivery"
+                        android:textColor="#673AB7"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="3dp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ DELIVERY BOY CARD ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDeliveryBoy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery Partner"
+                        android:textColor="#E23744"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDeliveryBoyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#212121"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp"/>
+
+                    <TextView
+                        android:id="@+id/tvDeliveryBoyPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#E23744"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

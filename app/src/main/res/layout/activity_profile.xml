@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_height="match_parent"
+         android:layout_width="match_parent">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@android:drawable/ic_menu_myplaces"/>
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditAddress"
+                android:text="Edit Address"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOrders"
+                android:text="My Orders"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:text="Logout"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

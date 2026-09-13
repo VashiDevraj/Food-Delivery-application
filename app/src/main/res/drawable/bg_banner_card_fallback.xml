@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fallback background for offer banner cards — overridden programmatically -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="#E23744"
+        android:endColor="#C62828"
+        android:angle="135"
+        android:type="linear" />
+    <corners android:radius="20dp" />
+</shape>

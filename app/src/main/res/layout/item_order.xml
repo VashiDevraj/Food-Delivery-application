@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_order.xml — User-facing order card.
+    IDs used by OrderHistoryActivity.OrderHistoryAdapter:
+      tvOrderId, tvOrderTime, tvOrderStatus, tvOrderAmount,
+      tvOrderItems, tvOrderNotes,
+      stepPlaced, stepPreparing, stepDelivered,
+      lineOneTwoConnector, lineTwoThreeConnector,
+      btnWriteReview, btnCancelOrder
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="14dp"
+    android:layout_marginEnd="14dp"
+    android:layout_marginTop="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E0E0E0"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ═══ HEADER ═══ -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:gravity="center_vertical"
+            android:background="#FFF3E0">
+
+            <!-- Shopping bag icon -->
+            <TextView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:text="🛍"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/bg_rounded_orange"
+                android:layout_marginEnd="12dp" />
+
+            <!-- Order ID + timestamp -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvOrderId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#212121"
+                    android:letterSpacing="0.04"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvOrderTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+
+            <!-- Status badge -->
+            <TextView
+                android:id="@+id/tvOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:background="@drawable/bg_status_pending"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Orange accent divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/divider_gradient_orange" />
+
+        <!-- ═══ PROGRESS TRACKER ═══ -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:background="#FFF8F2">
+
+            <!-- Dots + connectors row -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <View
+                    android:id="@+id/stepPlaced"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/bg_step_dot_light" />
+
+                <View
+                    android:id="@+id/lineOneTwoConnector"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="3dp"
+                    android:background="#DDDDDD" />
+
+                <View
+                    android:id="@+id/stepPreparing"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/bg_step_dot_light" />
+
+                <View
+                    android:id="@+id/lineTwoThreeConnector"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="3dp"
+                    android:background="#DDDDDD" />
+
+                <View
+                    android:id="@+id/stepDelivered"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/bg_step_dot_light" />
+
+            </LinearLayout>
+
+            <!-- Step labels row -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Placed"
+                    android:textSize="10sp"
+                    android:textColor="#888888"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Preparing"
+                    android:textSize="10sp"
+                    android:textColor="#888888"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Delivered"
+                    android:textSize="10sp"
+                    android:textColor="#888888"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE" />
+
+        <!-- ═══ ORDER ITEMS ═══ -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ITEMS"
+                android:textSize="10sp"
+                android:textColor="#E23744"
+                android:textStyle="bold"
+                android:letterSpacing="0.14"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvOrderItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#333333"
+                android:lineSpacingExtra="5dp"
+                android:fontFamily="monospace" />
+
+            <!-- Delivery Note — only shown when notes != null/empty -->
+            <TextView
+                android:id="@+id/tvOrderNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#5D4037"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:background="#FFF9C4"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- Orange accent divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/divider_gradient_orange" />
+
+        <!-- ═══ TOTAL FOOTER ═══ -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="8dp"
+            android:gravity="center_vertical"
+            android:background="#FFF3E0">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Order Total"
+                android:textSize="14sp"
+                android:textColor="#555555" />
+
+            <TextView
+                android:id="@+id/tvOrderAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#E23744" />
+
+        </LinearLayout>
+
+        <!-- ═══ REVIEW BUTTON ═══ (only for Delivered orders) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWriteReview"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"
+            android:text="⭐  Rate this order"
+            android:textColor="#E23744"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FFEBEE"
+            app:cornerRadius="10dp"
+            android:visibility="gone" />
+
+        <!-- ═══ CANCEL BUTTON ═══ (only for Pending orders) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelOrder"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="14dp"
+            android:text="Cancel Order"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="#D32F2F"
+            app:cornerRadius="10dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

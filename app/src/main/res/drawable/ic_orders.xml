@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ic_order.xml — Modern receipt / order icon
+    A clean paper receipt with:
+      • rounded top corners
+      • zigzag (serrated) bottom edge to look like a torn receipt
+      • two item lines + a total line for detail
+    Default fill: #757575 (matches the original)
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Receipt body: rounded top, straight sides, open bottom -->
+    <path
+        android:fillColor="#757575"
+        android:pathData="
+            M19,2
+            H5
+            C4.45,2 4,2.45 4,3
+            V19
+            L5.5,17.5 7,19 8.5,17.5 10,19 11.5,17.5 13,19 14.5,17.5 16,19 17.5,17.5 19,19 20,18
+            V3
+            C20,2.45 19.55,2 19,2
+            Z" />
+
+    <!-- Line 1 label — short left block (white on the receipt) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,7 H10 V8.2 H7 Z" />
+
+    <!-- Line 1 value — right side -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,7 H17 V8.2 H12 Z" />
+
+    <!-- Line 2 label -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,10 H10 V11.2 H7 Z" />
+
+    <!-- Line 2 value -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,10 H17 V11.2 H12 Z" />
+
+    <!-- Divider line -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,13.2 H17 V13.6 H7 Z" />
+
+    <!-- Total label — bold (slightly taller block) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,14.5 H10 V16 H7 Z" />
+
+    <!-- Total value — bold -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,14.5 H17 V16 H12 Z" />
+
+</vector>

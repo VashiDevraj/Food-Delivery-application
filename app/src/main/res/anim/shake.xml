@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    res/anim/shake.xml
+    Shake animation used when OTP is incorrect.
+    Translates the view left and right rapidly.
+-->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0"
+    android:toXDelta="12"
+    android:duration="80"
+    android:repeatMode="reverse"
+    android:repeatCount="5"
+    android:interpolator="@android:anim/cycle_interpolator" />

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_delivery_boy_rating_card.xml -->
+<!-- Used in DeliveryBoyRatingsActivity and DeliveryBoyProfileActivity -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeColor="#F5F5F5"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top row: Avatar initial + Name + Rating value -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <!-- Avatar circle -->
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:background="@drawable/circle_orange_bg"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="?"
+                android:id="@+id/tvRatingInitial"
+                android:layout_marginEnd="12dp"/>
+
+            <!-- Name + Stars -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvRatingReviewerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customer"
+                    android:textColor="#212121"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <RatingBar
+                    android:id="@+id/rbRatingBar"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:stepSize="0.5"
+                    android:isIndicator="true"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
+            <!-- Numeric rating badge -->
+            <TextView
+                android:id="@+id/tvRatingValue"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:background="@drawable/circle_green_light_bg"
+                android:text="5.0"/>
+
+        </LinearLayout>
+
+        <!-- Comment (hidden if empty) -->
+        <TextView
+            android:id="@+id/tvRatingComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#616161"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            android:text=""/>
+
+        <!-- Bottom row: Date + Order ref -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvRatingDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#9E9E9E"
+                android:textSize="11sp"
+                android:text="01 Jan 2025"/>
+
+            <TextView
+                android:id="@+id/tvRatingOrderRef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#E23744"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:text="#ORDER"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

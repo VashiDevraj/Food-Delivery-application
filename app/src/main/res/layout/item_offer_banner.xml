@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_offer_banner.xml
+    Used by OfferBannerAdapter inside the ViewPager2 on UserDashboard.
+    Each card is a gradient slab with a decorative food emoji, badge,
+    big offer title, subtitle and a pill CTA button.
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="6dp">
+
+    <!-- Root gradient card — background set programmatically -->
+    <LinearLayout
+        android:id="@+id/bannerCardRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="@drawable/bg_banner_card_fallback"
+        android:clipToOutline="true">
+
+        <!-- Left: text content -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Badge pill -->
+            <TextView
+                android:id="@+id/tvBannerBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔥 HOT DEAL"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_pill_white10"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Big offer title -->
+            <TextView
+                android:id="@+id/tvBannerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50% OFF"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:lineSpacingMultiplier="0.9"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/tvBannerSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="on select items · limited time"
+                android:textColor="#FFE0E0"
+                android:textSize="11sp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- CTA button -->
+            <TextView
+                android:id="@+id/tvBannerCta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Now →"
+                android:textColor="#E23744"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_cta_pill_white"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+        </LinearLayout>
+
+        <!-- Right: decorative food emoji -->
+        <TextView
+            android:id="@+id/tvBannerEmoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍕"
+            android:textSize="64sp"
+            android:layout_marginStart="8dp"
+            android:rotation="-12"
+            android:alpha="0.92" />
+
+    </LinearLayout>
+
+</FrameLayout>

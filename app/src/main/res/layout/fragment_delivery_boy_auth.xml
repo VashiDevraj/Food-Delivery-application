@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_delivery_boy_auth.xml — vibrant orange delivery partner auth -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:gravity="center"
+            android:paddingTop="8dp" android:paddingBottom="12dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🛵" android:textSize="42sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Delivery Partner Portal"
+                android:textSize="17sp" android:textStyle="bold"
+                android:textColor="#FF6F00" android:layout_marginTop="4dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Earn money delivering happiness 🎉"
+                android:textSize="12sp" android:textColor="#9E9E9E"
+                android:layout_marginTop="2dp" android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Login / Register tabs -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabDbLoginRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:tabIndicatorColor="#FF6F00"
+            app:tabSelectedTextColor="#FF6F00"
+            app:tabTextColor="#9E9E9E"
+            app:tabMode="fixed"
+            app:tabIndicatorFullWidth="false">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- ══ LOGIN LAYOUT ══ -->
+        <LinearLayout
+            android:id="@+id/layoutDbLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:layout_marginBottom="12dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                app:startIconDrawable="@drawable/ic_email"
+                app:startIconTint="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbLoginEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#212121"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:layout_marginBottom="20dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="#FF6F00"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbLoginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="#212121"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDbLogin"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Login as Delivery Partner"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:backgroundTint="#FF6F00"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+
+        <!-- ══ REGISTER LAYOUT ══ -->
+        <LinearLayout
+            android:id="@+id/layoutDbRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:layout_marginBottom="12dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbRegName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName|textCapWords"
+                    android:textColor="#212121" android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Address"
+                android:layout_marginBottom="12dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbRegEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#212121" android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number (10 digits)"
+                android:layout_marginBottom="12dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbRegPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" android:maxLength="10"
+                    android:textColor="#212121" android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password (min 6 characters)"
+                android:layout_marginBottom="12dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                app:endIconMode="password_toggle"
+                app:endIconTint="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbRegPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="#212121" android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Vehicle Type label + spinner -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Type *"
+                android:textColor="#FF6F00"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <Spinner
+                android:id="@+id/spinnerVehicleType"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_spinner_outlined"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Vehicle Number — hidden for Bicycle -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVehicleNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Vehicle Number (e.g. GJ01AB1234)"
+                android:layout_marginBottom="6dp"
+                app:boxStrokeColor="#FF6F00"
+                app:hintTextColor="#FF6F00"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDbRegVehicleNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapCharacters"
+                    android:textColor="#212121" android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Bicycle hint (shown when Bicycle is selected) -->
+            <TextView
+                android:id="@+id/tvVehicleNumberHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚲 Bicycles don't require a vehicle number"
+                android:textColor="#4CAF50"
+                android:textSize="12sp"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDbRegister"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Create Account"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                app:backgroundTint="#FF6F00"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

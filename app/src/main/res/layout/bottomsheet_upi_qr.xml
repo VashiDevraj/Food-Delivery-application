@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    res/layout/bottomsheet_upi_qr.xml
+    UPI payment bottom sheet.
+    Shows:
+      • QR code generated from vashidevraj50@oksbi UPI URI
+      • "Open UPI App" button → fires deep-link to GPay / PhonePe / Paytm etc.
+      • "Paid" confirmation button
+      • Close button
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="24dp">
+
+    <!-- Handle bar -->
+    <View
+        android:layout_width="48dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#DDDDDD"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="📱 UPI Payment"
+        android:textColor="#1565C0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <!-- UPI ID label -->
+    <TextView
+        android:id="@+id/tvQrUpiId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="vashidevraj50@oksbi"
+        android:textColor="#666666"
+        android:textSize="13sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- QR Code image -->
+    <ImageView
+        android:id="@+id/ivQrCode"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Amount label -->
+    <TextView
+        android:id="@+id/tvQrAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="₹0.00"
+        android:textColor="#212121"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Scan this QR with any UPI app — or tap the button below"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Open UPI App button (fires deep-link) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenUpiApp"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text=" Open UPI App to Pay"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        app:backgroundTint="#1565C0"
+        app:cornerRadius="12dp" />
+
+    <!-- Confirm payment received -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpiPaid"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="✅  Payment Received — Confirm"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        app:backgroundTint="#2E7D32"
+        app:cornerRadius="12dp" />
+
+    <!-- Close -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpiClose"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Close"
+        android:textStyle="bold"
+        app:backgroundTint="#EEEEEE"
+        android:textColor="#333333"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>
